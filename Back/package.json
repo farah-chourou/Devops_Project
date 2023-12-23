@@ -1,0 +1,35 @@
+{
+  "name": "backend_platfom_abonn_tv",
+  "version": "1.0.0",
+  "description": "freelance project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farah-chourou/Back_platform_abonnement_TV.git"
+  },
+  "author": "Farah Chourou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farah-chourou/Back_platform_abonnement_TV/issues"
+  },
+  "homepage": "https://github.com/farah-chourou/Back_platform_abonnement_TV#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.40.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.2",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^6.9.5"
+  }
+}
