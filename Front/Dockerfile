@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --force
 
 # Copy the rest of the application code to the container
 COPY . .
 
 RUN npm run build
-
+ 
 FROM nginx:alpine
 
 # Copy the built assets from the build stage to Nginx's default HTML directory
