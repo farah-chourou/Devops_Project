@@ -8,7 +8,7 @@ const connectDB = () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log(`Connected to MongoDB M-booking db...`);
+      console.log(`Connected to MongoDB  db...`);
     })
     .catch((error) => {
       console.error(`Error connecting to MongoDB: ${error}`);
