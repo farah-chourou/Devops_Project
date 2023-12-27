@@ -14,7 +14,6 @@ const mongoose = require("mongoose");
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -88,4 +87,4 @@ async function creatAdmin() {
 }
 creatSuperAdmin();
 creatAdmin();
-app.use("/", AllRoutes);
+app.use("/api", AllRoutes);

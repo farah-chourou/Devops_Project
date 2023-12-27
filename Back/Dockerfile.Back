@@ -12,10 +12,9 @@ RUN npm install -g nodemon
 RUN npm install
 
 # Copy the rest of the application code to the working directory
-COPY ./ ./
+COPY . .
 
-# Expose a port that your Node.js application will listen on (replace 3000 with your app's port)
-EXPOSE 9000
+EXPOSE 8080
 
 # Start the Node.js application
 CMD ["npm", "start"]

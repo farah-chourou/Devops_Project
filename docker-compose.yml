@@ -3,6 +3,7 @@ version: "2.22"
 networks:
   mynetwork:
     driver: bridge
+
 services:
   mongodb:
     image: mongo:latest
@@ -22,12 +23,11 @@ services:
     networks:
       - mynetwork
     ports:
-      - "9000:9000"
+      - "8080:8080"
     environment:
       ACCESS_TOKEN_SECRET: 9cffa439-bbcf-4c62-8dde-48e54b2a6494
       REFRESH_TOKEN_SECRET: FreelanceSuiviClient*****
-      PORT: 9000
-      FRONTEND_ORIGIN: 80
+      PORT: 8080
       DB: mongodb://mongodb:27017/tv
       SALT: 10
       USERMAIL: chouroufarah1@gmail.com
@@ -43,23 +43,26 @@ services:
     build:
       context: ./Front
       dockerfile: Dockerfile.Front
+    ports:
+      - "3000:3000"
     networks:
       - mynetwork
-    ports:
-      - "80:80"
     environment:
-      REACT_APP_API_PORT: http://localhost:9000
+      REACT_APP_API_PORT: http://localhost:8080/api
     depends_on:
       - tv_platform_backend
 
   nginx:
     image: nginx:latest
+    networks:
+      - mynetwork
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - tv_platform_backend
+      - tv_platform_frontend
 
 volumes:
   mongodb_data:
