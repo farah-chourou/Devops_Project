@@ -7,11 +7,21 @@ pipeline {
 				checkout scm
 			}
 		}
-      stage('Build') {
+             stage('verify tools') {
+            steps {
+                sh ''' docker info
+                   docker version 
+                   docker compose version 
+                
+                
+                '''  // Build your containers using Docker Compose
+            }
+        }
+     /*  stage('Build') {
             steps {
                 sh 'docker-compose build'  // Build your containers using Docker Compose
             }
-        }
+        } */
      /*   stage('Unit Test') {
             steps {
                 sh 'echo "Running unit tests"'  // Placeholder command for running unit tests
