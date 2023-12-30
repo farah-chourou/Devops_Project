@@ -9,8 +9,9 @@ pipeline {
 		}
      stage('Run Docker Compose') {
             steps {
-                dir('/var/jenkins_home/jobs/DevopsProject/workspace@2/Devops_Project') {
-                sh 'docker-compose up -d'
+               script {
+                    def dockerComposeCmd = 'C:\Program Files\Docker\Docker\resources\bin\docker-compose'
+                    sh "${dockerComposeCmd} up -d"
                 }
             }
         }
