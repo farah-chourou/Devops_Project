@@ -2,7 +2,12 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Checkout') {
+			steps {
+				checkout scm
+			}
+		}
+       /*  stage('Build') {
             steps {
                 sh 'docker-compose build'  // Build your containers using Docker Compose
             }
@@ -17,7 +22,7 @@ pipeline {
             steps {
                 sh 'echo "Running integration tests"'  // Placeholder command for running integration tests
             }
-        }
+        } */
     }
     
     post {
