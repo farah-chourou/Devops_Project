@@ -7,14 +7,13 @@ pipeline {
 				checkout scm
 			}
 		}
-             stage('verify tools') {
+          stage('verify tools') {
             steps {
-                sh '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker" --version'
+              sh 'docker-compose up -d'
+
                    
                 
-                
-                 // Build your containers using Docker Compose
-            }
+            } 
         }
      /*  stage('Build') {
             steps {
