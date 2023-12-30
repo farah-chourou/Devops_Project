@@ -22,7 +22,7 @@ pipeline {
     
     post {
         success {
-            // Any steps to execute upon successful completion of the pipeline
+            sh 'echo " i********************"' 
         }
     }
 }
