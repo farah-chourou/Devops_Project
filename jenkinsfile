@@ -9,20 +9,13 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                // Run unit tests
+                sh 'echo "Running unit tests"'  // Placeholder command for running unit tests
             }
         }
-        stage('Sonar') {
-            when {
-                expression { params.SCAN_CODE == 'true' }  // Optional: Use parameters to trigger this stage
-            }
-            steps {
-                // Integrate with SonarQube for code analysis
-            }
-        }
+      
         stage('Integration Test') {
             steps {
-                // Run integration tests
+                sh 'echo "Running integration tests"'  // Placeholder command for running integration tests
             }
         }
     }
