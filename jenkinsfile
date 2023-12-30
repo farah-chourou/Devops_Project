@@ -9,11 +9,11 @@ pipeline {
 		}
              stage('verify tools') {
             steps {
-                sh ''' docker --version
+                sh '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker" --version'
                    
                 
                 
-                '''  // Build your containers using Docker Compose
+                 // Build your containers using Docker Compose
             }
         }
      /*  stage('Build') {
