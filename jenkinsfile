@@ -9,9 +9,9 @@ pipeline {
 		}
              stage('verify tools') {
             steps {
-                sh ''' docker info
-                   docker version 
-                   docker compose version 
+                sh '''/usr/bin/docker info
+                   /usr/bin/docker version
+                   /usr/local/bin/docker-compose version
                 
                 
                 '''  // Build your containers using Docker Compose
