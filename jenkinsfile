@@ -7,13 +7,12 @@ pipeline {
 				checkout scm
 			}
 		}
-          stage('verify tools') {
+     stage('Run Docker Compose') {
             steps {
-              sh 'docker-compose up -d'
-
-                   
-                
-            } 
+                dir('/var/jenkins_home/jobs/DevopsProject/workspace@2') {
+                sh 'docker-compose up -d'
+                }
+            }
         }
      /*  stage('Build') {
             steps {
