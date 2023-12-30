@@ -3,10 +3,9 @@ pipeline {
     
     stages {
         stage('Build') {
-            script {
-                    // Run Docker commands directly in the pipeline
-                    sh 'docker-compose build'  // Example Docker command
-                }
+            steps {
+                sh 'docker-compose build'  // Build your containers using Docker Compose
+            }
         }
         stage('Unit Test') {
             steps {
