@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker-compose build'  // Build your containers using Docker Compose
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                // Run unit tests
+            }
+        }
+        stage('Sonar') {
+            when {
+                expression { params.SCAN_CODE == 'true' }  // Optional: Use parameters to trigger this stage
+            }
+            steps {
+                // Integrate with SonarQube for code analysis
+            }
+        }
+        stage('Integration Test') {
+            steps {
+                // Run integration tests
+            }
+        }
+    }
+    
+    post {
+        success {
+            // Any steps to execute upon successful completion of the pipeline
+        }
+    }
+}
