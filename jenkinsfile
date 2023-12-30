@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+			steps {
+				checkout scm
+			}
+		}
+     stage('Run Docker Compose') {
+            steps {
+               script {
+                    sh "docker-compose -v"
+                }
+            }
+        }
+     /*  stage('Build') {
+            steps {
+                sh 'docker-compose build'  // Build your containers using Docker Compose
+            }
+        } */
+     /*   stage('Unit Test') {
+            steps {
+                sh 'echo "Running unit tests"'  // Placeholder command for running unit tests
+            }
+        }
+      
+        stage('Integration Test') {
+            steps {
+                sh 'echo "Running integration tests"'  // Placeholder command for running integration tests
+            }
+        } */
+    }
+    
+    post {
+        success {
+            sh 'echo " i********************"' 
+        }
+    }
+}
