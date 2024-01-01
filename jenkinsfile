@@ -1,9 +1,7 @@
 pipeline {
     agent any
     
-    environment {
-        DOCKER_COMPOSE_PATH = 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe' 
-    }
+
     stages {
         stage('Checkout') {
 			steps {
@@ -12,8 +10,8 @@ pipeline {
 		}
      stage('Run Docker Compose') {
             steps {
-               script {
-                bat 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe up -d'
+                dir('/var/jenkins_home/jobs/DevopsProject/workspace/DevopsProject ') {
+                    sh 'docker-compose up '  // Run your Mockito tests here
                 }
             }
         }
