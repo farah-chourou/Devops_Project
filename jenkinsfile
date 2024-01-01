@@ -11,7 +11,10 @@ pipeline {
 			}
 		}
      stage('Run Docker Compose') {
-           sh 'steps node --version'  // Run your Mockito tests here
+        steps {
+           sh ' node --version'  
+
+        }
                 
             }
         }
