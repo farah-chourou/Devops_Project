@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_COMPOSE_PATH = 'C:\Program Files\Docker\Docker\resources\bin\docker-compose.exe' 
+    }
+    stages {
+        stage('Checkout') {
+			steps {
+				checkout scm
+			}
+		}
+     stage('Run Docker Compose') {
+            steps {
+               script {
+                    sh "${DOCKER_COMPOSE_PATH} up -d"
+                }
+            }
+        }
+     /*  stage('Build') {
+            steps {
+                sh 'docker-compose build'  // Build your containers using Docker Compose
+            }
+        } */
+     /*   stage('Unit Test') {
+            steps {
+                sh 'echo "Running unit tests"'  // Placeholder command for running unit tests
+            }
+        }
+      
+        stage('Integration Test') {
+            steps {
+                sh 'echo "Running integration tests"'  // Placeholder command for running integration tests
+            }
+        } */
+    }
+    
+    post {
+        success {
+            sh 'echo " i********************"' 
+        }
+    }
+}
