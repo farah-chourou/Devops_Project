@@ -10,8 +10,7 @@ pipeline {
      stage('Run Docker Compose') {
             steps {
                script {
-                    def dockerComposeCmd = 'C:\Program Files\Docker\Docker\resources\bin\docker-compose'
-                    sh "${dockerComposeCmd} up -d"
+                    sh "docker-composeup -d"
                 }
             }
         }
