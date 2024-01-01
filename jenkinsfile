@@ -1,44 +1,43 @@
 pipeline {
     agent {
-        docker {image 'node:16-alpine'}
+        docker { image 'node:16-alpine' }
     }
-    
 
     stages {
         stage('Checkout') {
-			steps {
-				checkout scm
-			}
-		}
-     stage('Run Docker Compose') {
-        steps {
-           sh ' node --version'  
-
-        }
-                
+            steps {
+                checkout scm
             }
         }
-     /*  stage('Build') {
+
+        stage('Run Docker Compose') {
+            steps {
+                sh 'node --version'  
+            }
+        }
+
+        /* stage('Build') {
             steps {
                 sh 'docker-compose build'  // Build your containers using Docker Compose
             }
         } */
-     /*   stage('Unit Test') {
+
+        /* stage('Unit Test') {
             steps {
                 sh 'echo "Running unit tests"'  // Placeholder command for running unit tests
             }
         }
-      
+
         stage('Integration Test') {
             steps {
                 sh 'echo "Running integration tests"'  // Placeholder command for running integration tests
             }
         } */
     }
-    
+
     post {
         success {
-            sh 'echo " i********************"' 
+            sh 'echo "********************"' 
         }
     }
 }
