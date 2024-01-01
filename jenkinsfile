@@ -13,7 +13,7 @@ pipeline {
      stage('Run Docker Compose') {
             steps {
                script {
-                    sh "${DOCKER_COMPOSE_PATH} up -d"
+                bat 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe up -d'
                 }
             }
         }
