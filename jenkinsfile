@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_COMPOSE_PATH = 'C:\Program Files\Docker\Docker\resources\bin\docker-compose.exe' 
+        DOCKER_COMPOSE_PATH = 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker-compose.exe' 
     }
     stages {
         stage('Checkout') {
